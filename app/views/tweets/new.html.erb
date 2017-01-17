@@ -1,0 +1,19 @@
+      <div class="panel panel-info">
+        <div class="panel-body">
+      <% @tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+          <%= form_for(@tweet) do |f| %>  
+    　　    <%= f.text_area :tweet, class: "form-control", :placeholder => "いまどうしてる?"%><br>
+          <%= f.submit 'ツイートする', class: 'btn btn-primary btn-block' %>
+          <% end %>
+    　　</div>
+    　　<div class="panel-footer">
+    　　  　  <% @tweets.each do |s| %>
+           <p class="panel-body"><%= s.tweet %></p>
+             <%= link_to "ツイートを編集する", edit_tweet_path(s.id),class: 'btn btn-success btn-sm' %>
+             <%= link_to "ツイートを削除する", tweet_path(s.id), method: :delete, data: { confirm: '本当に削除していいですか？'},class: 'btn btn-danger btn-sm'%>
+             <hr>
+           <% end %>
+    　　</div>
+　　　</div>

@@ -1,0 +1,6 @@
+<%= form_for(@tweet, url: choose_new_or_edit) do |f| %>
+  <%= f.label :tweet %>
+  <%= f.text_field :content, class: 'form-control' %>
+  <br>
+  <%= f.submit 'ツイートする',class: 'btn btn-primary btn-block' %>
+<% end %>
